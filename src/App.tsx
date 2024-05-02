@@ -17,11 +17,9 @@ function App() {
     console.log("App Rendering")
     return (
         <div className="App">
-            {/*<PageTitle title={"This is App component"}/>*/}
-            {/*<Rating value={2}/>*/}
             <Accordion title={"Меню"} collapsed={true}/>
-            <Accordion title={"Users"} collapsed={false}/>
-            {/*<Rating value={4}/>*/}
+            <Accordion title={"Users"} collapsed={true}/>
+            <Rating value={4}/>
         </div>
     );
 }
