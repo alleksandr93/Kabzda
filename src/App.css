@@ -1,4 +1,16 @@
-body{
-  font-size: 22px;
-  padding: 10px 0 0 30px;
+body {
+    width: 60px;
+    margin: 20px auto;
+    font-size: 22px;
+    padding: 10px 0 0 30px;
+}
+
+.stars {
+    display: flex;
+    margin:20px 0 0 -100px;
+}
+.OnOff{
+    display: flex;
+    align-items: center;
+    width: 300px;
 }

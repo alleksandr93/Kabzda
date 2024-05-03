@@ -17,11 +17,9 @@ function App() {
 
     return (
         <div className="App">
-            {/*<Accordion title={"Меню"} collapsed={true}/>*/}
-            {/*<Accordion title={"Users"} collapsed={true}/>*/}
-            {/*<Rating value={4}/>*/}
+            <OnOff/>
             <UnControlledAccordion title={'Menu'}/>
-            <UnControlledAccordion title={'Users'}/>
+            <UncontrolledRating/>
             <UncontrolledRating/>
         </div>
     );

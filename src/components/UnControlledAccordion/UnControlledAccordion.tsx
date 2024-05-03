@@ -6,16 +6,17 @@ type UnControlledAccordionPropsType = {
 }
 type UncControlledAccordionTitleProps = {
     title: string
+    changeClickState:()=>void
 }
 
 export function UnControlledAccordion(props: UnControlledAccordionPropsType) {
 
-    const [collapsed, setCollapsed] = useState(true)
-    const changeClickState = () => {
+    const [collapsed, setCollapsed] = useState(false)
+    const changeClickState = ( ) => {
         setCollapsed(!collapsed)
     }
     return <div>
-        <AccordionTitle title={props.title}/> <button onClick={changeClickState}>TOGGLE</button>
+        <AccordionTitle title={props.title} changeClickState={changeClickState}/>
         {!collapsed && <AccordionBody/>}
     </div>
 
@@ -32,6 +33,9 @@ function AccordionBody() {
 }
 
 function AccordionTitle(props: UncControlledAccordionTitleProps) {
+    const onClickHeandler=()=>{
+        props.changeClickState()
+    }
     console.log('AccordionTitle rendering')
-    return <h3 >{props.title}</h3>
+    return <h3 onClick={onClickHeandler}>{props.title}</h3>
 }

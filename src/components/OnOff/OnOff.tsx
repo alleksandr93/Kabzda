@@ -33,7 +33,7 @@ export const OnOff = () => {
     const onClickHeader = (status: string) => {
         status === 'On' ? setOn(true) : setOn(false)
     }
-    return <div>
+    return <div className={'OnOff'}>
         <div onClick={() => onClickHeader('On')} style={onStyle}>On</div>
         <div onClick={() => onClickHeader('Off')} style={offStyle}>Off</div>
         <div style={indicatorStyle}></div>
