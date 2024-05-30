@@ -4,6 +4,7 @@ import {Rating, RatingValueType} from './components/Rating/Rating';
 import {UncontrolledRating} from './components/UnControlledRating/UnControlledRating';
 import {Accordion} from './components/Accordion/Accordion';
 import {OnOff} from './components/OnOff/OnOff';
+import {UncontrolledOnOff} from './components/UnControlledOnOff/UnControlledOnOff';
 
 
 type PageTitleProps = {
@@ -15,12 +16,13 @@ function App() {
     console.log('App Rendering')
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     const [accordionCollapsed,setAccordionCollapsed]=useState<boolean>(false)
-    const [on, setOn] = useState<boolean>(true)
+    const [switchOn, setSwitchOn] = useState<boolean>(true)
     return (
         <div className="App">
-            <OnOff on={on} setOn={setOn}/>
+            {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
             <Rating onClick={setRatingValue} value={ratingValue}/>
-            <Accordion title={'Menu'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
+            <Accordion title={'Menu'} collapsed={accordionCollapsed} onChange={()=>setAccordionCollapsed(!accordionCollapsed)}/>
+            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
         </div>
     );
 }

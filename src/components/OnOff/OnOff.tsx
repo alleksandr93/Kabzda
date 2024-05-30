@@ -1,10 +1,10 @@
 import React from 'react';
 
-type PropsOnOffType = {
+type PropsValue = {
     on: boolean
-    setOn: (on: boolean) => void
+    onChange: (on: boolean) => void
 }
-export const OnOff:React.FC<PropsOnOffType> = ({on,setOn}) => {
+export const OnOff:React.FC<PropsValue> = ({on,onChange}) => {
     const onStyle = {
         width: '30px',
         height: '30px',
@@ -33,7 +33,7 @@ export const OnOff:React.FC<PropsOnOffType> = ({on,setOn}) => {
     }
 
     const onClickHeader = (status: string) => {
-        status === 'On' ? setOn(true) : setOn(false)
+        status === 'On' ? onChange(true) : onChange(false)
     }
     return <div className={'OnOff'}>
         <div onClick={() => onClickHeader('On')} style={onStyle}>On</div>
