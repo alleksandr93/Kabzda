@@ -1,8 +1,10 @@
-import {useState} from 'react';
+import React from 'react';
 
-
-export const OnOff = () => {
-    const [on, setOn] = useState(true)
+type PropsOnOffType = {
+    on: boolean
+    setOn: (on: boolean) => void
+}
+export const OnOff:React.FC<PropsOnOffType> = ({on,setOn}) => {
     const onStyle = {
         width: '30px',
         height: '30px',

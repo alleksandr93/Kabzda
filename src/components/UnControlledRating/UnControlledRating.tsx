@@ -1,40 +1,34 @@
 import React, {useState} from 'react';
 
 type UncontrolledRatingProps = 0 | 1 | 2 | 3 | 4 | 5
-type TypePropsStar = {
-    value: boolean
-    number: UncontrolledRatingProps
-    changeSelect: (count: UncontrolledRatingProps) => void
-}
+
 
 export function UncontrolledRating() {
     console.log('Rating redered')
-    const [value, setvalue] = useState<UncontrolledRatingProps>(0)
-    const changeSelect = (count: UncontrolledRatingProps) => {
-        setvalue(count)
-    }
-
+    const [value, setValue] = useState<UncontrolledRatingProps>(0)
     return (
         <div className={'stars'}>
-            <Star value={value > 0} number={1} changeSelect={changeSelect}/>
-            <Star value={value > 1} number={2} changeSelect={changeSelect}/>
-            <Star value={value > 2} number={3} changeSelect={changeSelect}/>
-            <Star value={value > 3} number={4} changeSelect={changeSelect}/>
-            <Star value={value > 4} number={5} changeSelect={changeSelect}/>
+            <Star selected={value > 0}  setValue={()=>setValue(1)}/>
+            <Star selected={value > 1}  setValue={()=>setValue(2)}/>
+            <Star selected={value > 2}  setValue={()=>setValue(3)}/>
+            <Star selected={value > 3}  setValue={()=>setValue(4)}/>
+            <Star selected={value > 4}  setValue={()=>setValue(5)}/>
         </div>
     )
 }
 
+type TypePropsStar = {
+    selected: boolean
+    setValue: () => void
+}
+
 function Star(props: TypePropsStar) {
     const onClickHeader = () => {
-        props.changeSelect(props.number)
+        props.setValue()
     }
-    console.log('Star rendered')
-        return <>
-            {props.value && <span onClick={onClickHeader}><b>Star </b></span>}
-            {!props.value&&<span onClick={onClickHeader}>Star </span>}
-        </>
-
+    return <span onClick={onClickHeader}>
+        {props.selected ? <b>star </b> : 'star '}
+    </span>
 
 
 }
